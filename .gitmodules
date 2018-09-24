@@ -1,0 +1,3 @@
+[submodule "ChatApi.AspnetCore"]
+	path = ChatApi.AspnetCore
+	url = https://github.com/nertilpoci/ChatApi.AspnetCore
