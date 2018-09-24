@@ -1,0 +1,50 @@
+﻿
+     <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+        <mat-toolbar color="accent" class="example-toolbar">
+          <button mat-icon-button (click)="isSideNavOpened=!isSideNavOpened"><mat-icon>menu</mat-icon></button>
+          <span class="spacer"></span>
+          <img *ngIf="currentUser" [matMenuTriggerFor]="menu" class="circle-image" [ngClass]="onlineStatus(currentUser.customStatus)" style="height:34px;width:34px;"  src="{{appConfig.profilePictureUrl}}/{{currentUser.id}}{{authorizationQueryString}}" alt="" /> 
+          <mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="openUserDataDialog()" >
+    <mat-icon>account_box</mat-icon>
+    <span>Account Info</span>
+  </button>
+  <button  color="warn" (click)="logout()" mat-menu-item >
+    <mat-icon color="warn">exit_to_app</mat-icon>
+    <span>Logout</span>
+  </button>
+
+</mat-menu>
+        </mat-toolbar>
+        <mat-sidenav-container class="example-sidenav-container"
+                               [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+          <mat-sidenav #snav [opened]="isSideNavOpened" [style.minWidth.px]="250"
+          [mode]="mobileQuery.matches ? 'over' : 'side'"
+                       [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+                    <app-users-component  style="height:100%;overflow:scroll" [loadingUsers]="loadingUsers" [loadingConversations]="loadingConversations" (switchChat)="switchChat($event)"  (startConversation)="startConversation($event)" [users]="userWithoutConversation"  [conversations]="conversations"></app-users-component>
+          </mat-sidenav>
+          <mat-sidenav-content>
+            
+                <section>
+                        <div class="user-details">
+                                <app-conversation-header *ngIf="currentConversation" [conversation]="currentConversation"></app-conversation-header>                                
+                           </div>
+                           <div class="messages" style="display:flex;flex-direction: column-reverse;" >
+                                <app-messages-component   *ngIf="currentConversation && !loadingMessages" [conversation]="currentConversation"></app-messages-component>     
+                                 <div  *ngIf="loadingMessages">
+                                  <app-loader></app-loader>
+                                  <app-loader ></app-loader>
+                                  <app-loader ></app-loader>
+                                 </div>
+                              </div>
+                       
+                              <div class="new-message">
+                                    <app-new-message *ngIf="currentConversation !isLoading" [conversation]="currentConversation"></app-new-message> 
+                                        <app-loader *ngIf="isLoading"></app-loader>
+                              </div>
+                      </section>
+                
+                   
+          </mat-sidenav-content>
+        </mat-sidenav-container>
+      </div>

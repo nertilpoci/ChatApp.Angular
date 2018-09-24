@@ -1,0 +1,9 @@
+<mat-list  role="list">
+            <mat-list-item  role="listitem" *ngFor="let metadata of metadatas" >              
+                  <mat-icon mat-list-icon  class="large-mat-icon">
+                      <img class=" large-mat-icon" src="{{metadata.imageUrl}}"  >
+                  </mat-icon>
+                  <p  mat-line matTooltip="{{metadata.description}}" [innerHtml]="metadata.description | truncate : 60 : '..'"></p> 
+                  <h3 mat-line >{{metadata.url}}</h3> 
+              </mat-list-item>   
+    </mat-list>

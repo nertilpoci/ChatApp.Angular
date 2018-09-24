@@ -1,0 +1,23 @@
+<div *ngFor="let image of images; let i=index">
+  <img style="max-height:200px" [src]="image.thumb" (click)="open(i)" />
+</div>
+<div *ngFor="let video of videos">
+        <video width="320" height="240" controls>
+          <source src="{{apiUrl}}/{{video.id}}{{authorizationQueryString}}">
+        Your browser does not support the video tag.
+        </video>
+  <p>{{video.fileName}}</p>
+</div>
+<div *ngFor="let audio of audios">
+  <audio style="max-width: 100%" controls>
+    <source src="{{apiUrl}}/{{audio.id}}{{authorizationQueryString}}">
+  </audio>
+   <p>{{audio.fileName}}</p>
+</div>
+<div *ngFor="let other of others">
+  <div >
+    <a class="download-button" mat-raised-button href="{{apiUrl}}/{{other.id}}{{authorizationQueryString}}" download> 
+       <span [innerHtml]="fileIcon(other.fileId)"></span> &nbsp; <span matTooltip="{{other.fileName}}">{{other.fileName | truncate : 20 : '..'}}</span>
+    </a>   
+  </div>
+</div>

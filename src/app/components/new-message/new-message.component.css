@@ -1,0 +1,11 @@
+
+.message-form {
+    width: 100%;
+      
+  }
+  .message-box{
+      width:calc(100% - 190px);
+  }
+  :host{
+     
+  }

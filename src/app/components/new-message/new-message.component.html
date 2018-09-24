@@ -1,0 +1,34 @@
+
+      
+        
+        <mat-card class="info-card mat-accent">
+            <form  class="message-form">
+                <input style="display:none" #file type="file" multiple (change)="upload(file.files)" />
+            
+                <button mat-icon-button (click)="file.click()">
+                    <mat-icon color="accent">attachment</mat-icon>
+                  </button>
+                  
+                <mat-form-field class="message-box">
+  <textarea matInput (keyup.enter)="onEnter()"  matTextareaAutosize matAutosizeMinRows="1"
+            matAutosizeMaxRows="5" placeholder="Enter Message"  name="messageInput" (focus)="typing(true)" (focusout)="typing(false)" [(ngModel)]="message"></textarea>
+                </mat-form-field>
+                  <button mat-icon-button (click)="emojiListOpened=!emojiListOpened">
+                    <mat-icon color="accent" >faces</mat-icon>
+                  </button>
+                <mat-slide-toggle name="sendonenter"
+          [color]="accent" matTooltip=" Send on enter"
+          [(ngModel)]="sendOnEnter">
+       
+      </mat-slide-toggle>
+                <button mat-icon-button (click)="sendMessage()">
+                    <mat-icon color="accent">send</mat-icon>
+                  </button>
+              </form>
+              <h5 style="font-size:12px; color:#F44336" *ngIf="conversation.awayUser.isTyping"> {{conversation.awayUser.name }} is typing ... </h5>
+            <mat-expansion-panel [expanded]="emojiListOpened" hideToggle="true" style="max-height:200px;overflow:auto">
+   
+  <app-emoji-list  (emojiSelected)="insertEmoji($event)"></app-emoji-list>
+  </mat-expansion-panel>
+  
+          </mat-card>
