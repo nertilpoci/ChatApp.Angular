@@ -23,9 +23,9 @@ export const LiveConfig: AppConfig = {
   authorityUrl: "https://mychat.api.devhow.net",
   profilePictureUrl: "https://mychat.api.devhow.net/api/chat/profilepicture",
   attachmentsUrl: "https://mychat.api.devhow.net/api/chat/attachments",
-   auth_redirect_uri: 'https://mychat.api.devhow.net/auth-callback',
+   auth_redirect_uri: 'https://mychat.devhow.net/auth-callback',
   link_preview_uri:'https://mychat.api.devhow.net/api/chat/preview',
-  auth_post_logout_redirect_uri: 'http://localhost:4200',
+  auth_post_logout_redirect_uri: 'https://mychat.devhow.net',
   auth_response_type:"id_token token",
   auth_scope:"openid profile nchat",
   auth_client_id:"nchatjavascriptclient"
@@ -37,9 +37,9 @@ export const LocalConfig: AppConfig = {
   authorityUrl: "https://login.devhow.net/",
   profilePictureUrl: "https://mychat.api.devhow.net/api/chat/profilepicture",
   attachmentsUrl: "https://mychat.api.devhow.net/api/chat/attachments",
-   auth_redirect_uri: 'http://localhost:4200/auth-callback',
+   auth_redirect_uri: 'https://mychat.devhow.net/auth-callback',
   link_preview_uri:'https://mychat.api.devhow.net/api/chat/preview',
-  auth_post_logout_redirect_uri: 'http://localhost:4200',
+  auth_post_logout_redirect_uri: 'https://mychat.devhow.net',
   auth_response_type:"id_token token",
   auth_scope:"openid profile nchat",
   auth_client_id:"nchatjavascriptclient"
