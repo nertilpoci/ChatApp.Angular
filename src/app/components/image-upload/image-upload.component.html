@@ -1,0 +1,30 @@
+
+<input style="display:none" #file (change)="Img.fileChangeListener($event)" type="file">
+<!--<div class="button-row">
+    <button mat-button (click)="file.click()" color="primary">Select Image</button>
+     <button mat-button color="primary" [disabled]="isUploading || Img.imgCrop" (click)="upload(Img.imgCrop)">Upload</button>
+  </div>
+  
+<ly-cropping-img imgHeight="200" imgWidth="200" #Img format="png"></ly-cropping-img>
+<div class="button-row">
+    <button mat-button color="accent" (click)="Img.zoom('+')">Zoom In</button>
+    <button mat-button color="accent" (click)="Img.zoom('-')">Zoom Out</button>
+    <button mat-button color="accent" (click)="Img.center()">Center</button>
+  </div>
+<br />
+<img [src]="Img.imgCrop">-->
+
+<div>
+  <div class="button-row">
+    <button mat-button (click)="file.click()" color="primary">Select Image</button>
+     <button mat-button color="primary" [disabled]="isUploading || !data.image" (click)="upload(data.image)">Upload</button>
+  </div>
+  <mat-progress-bar *ngIf="isUploading" mode="determinate" [value]="uploadProgress"></mat-progress-bar>
+
+        <img-cropper #Img  [image]="data" [settings]="cropperSettings"></img-cropper><br>
+        <img *ngIf="data.image" [src]="data.image" width="100" height="100">
+
+    </div>
+
+
+

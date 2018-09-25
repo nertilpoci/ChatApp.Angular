@@ -1,0 +1,8 @@
+.info-card{
+    max-height:100px;
+    padding:10px;
+     z-index: 10;
+}
+:host{
+    z-index: 10;
+}

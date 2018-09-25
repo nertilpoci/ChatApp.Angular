@@ -1,0 +1,4 @@
+<mat-grid-list cols="20" rowHeight="15px">
+  <mat-grid-tile class="clickeable" (click)="selectEmoji(emoji)" *ngFor="let emoji of emojiList">{{emoji.value}}</mat-grid-tile>
+  
+</mat-grid-list>

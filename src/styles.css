@@ -1,0 +1,37 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body {
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0;
+  }
+  .mat-dialog-container
+  {
+      padding: 0px!important;
+  }
+  .clickeable{
+     cursor: pointer;
+  }
+  .circle {
+      border-radius: 50%;
+      width: 12px;
+    height: 12px; 
+    
+      /* width and height can be anything, as long as they're equal */
+  }
+  .mat-expansion-panel-body{
+      padding:2px!important;
+  }
+  
+  .online{
+    background:green;
+  }
+  .busy{
+    background:red;
+  }
+  .offline{
+    background:grey;
+  }
+  .away{
+    background: yellow;
+  }
